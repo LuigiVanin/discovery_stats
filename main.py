@@ -2,11 +2,11 @@ import pandas as pd
 import numpy as np
 from csv import writer as wt
 
-csv_name = "Database/Result_DigiMesh.csv"
+csv_name = "Database/Result_ZigBee.csv"
 
 table = []
 
-data = pd.read_csv("Database/DigiMesh/Modelo_12.csv")
+data = pd.read_csv("Database/ZigBee/Modelo_04.csv")
 data = data.replace("-", 25)
 
 
@@ -18,7 +18,7 @@ for i in range(col):
         temp = temp.astype(float)
         table = table + list(temp)
 
-stats = [12, round(np.mean(temp), 2), round(np.std(temp), 2), max(temp) ]
+stats = [1, round(np.mean(table), 2), round(np.std(table), 2), max(table) ]
 print(table)
 
 with open(csv_name, "a", newline="") as csvfile:
